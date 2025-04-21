@@ -1,0 +1,103 @@
+.nav-pills .nav-link {
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    transition: 0.3s ease-in-out;
+    background-color: transparent; /* Default transparent background */
+    display: flex;
+    flex-direction: column; /* Stack icon on top of label */
+    align-items: center; /* Center align icon and label */
+    justify-content: center; /* Center them vertically */
+  }
+  
+  .nav-pills .nav-link:not(.bca):hover label {
+    color: #2a2a2a !important; /* Make sure the label color changes on hover except for the 'bca' class */
+  }
+  
+  .nav-pills .nav-link:not(.bca):hover i {
+    color: #2a2a2a !important; /* Make sure the icon color changes on hover except for the 'bca' class */
+  }
+  
+  
+  
+  .nav-link {
+    font-size: 1.1rem;
+    color: #6c757d !important;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .nav-link i {
+    font-size: 1.5rem; /* Increase icon size */
+    color: #6c757d !important;
+  }
+  
+  .nav-link label {
+    font-size: 1.1rem;
+    color: #6c757d !important;
+    cursor: pointer;
+    position: relative;
+    margin-top: 0.3rem; /* Add space between icon and label */
+  }
+  
+  /* Apply the following only to labels that do not have the 'bca' class */
+  .nav-link label:not(.bca)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* creates space between text and underline */
+    width: 100%;
+    height: 3px; /* thicker underline */
+    background-color: #6c757d;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover label::after {
+    transform: scaleX(1);
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: #343a40ad !important;
+  }
+  
+  .nav-link.active i {
+    color: #343a40 !important;
+  }
+  
+  .nav-link.filter {
+    background-color: #ffffff; /* White background for Filters */
+    border: 1px solid #ced4da; /* Gray border */
+    color: #6c757d;
+  }
+  
+  .nav-link.filter:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .nav-link.filter.active {
+    background-color: #007bff; /* Blue background when selected */
+    color: white; /* White text when selected */
+  }
+  
+  /* For any label clicked, changing background and text color */
+  .nav-link.active {
+    background-color: #007bff; /* Background color on selection */
+    color: white; /* White text on selection */
+  }
+  /* Reduce icon-label spacing */
+.icon-label-sm {
+    row-gap: 0.25rem; /* smaller than gap-2 */
+  }
+  
+  /* Smaller icons */
+  .nav-link i {
+    font-size: 1.4rem !important; /* was 1.5rem */
+  }
+  
+  /* Smaller labels */
+  .nav-link label {
+    font-size: 01rem !important; /* was 1.1rem */
+    margin-top: 0rem; /* was 0.3rem */
+  }
+  

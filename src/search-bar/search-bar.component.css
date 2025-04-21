@@ -1,0 +1,32 @@
+input[type="date"].modern-date::-webkit-calendar-picker-indicator {
+    filter: invert(45%) sepia(100%) saturate(300%) hue-rotate(305deg);
+    cursor: pointer;
+  }
+  input[type="date"].modern-date {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: 0.875rem; /* text-sm */
+  }
+/* Custom class for number input */
+.custom-number-input::-webkit-outer-spin-button,
+.custom-number-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-number-input {
+  -moz-appearance: textfield;
+}
+.shadow-wrapper {
+    box-shadow: 0 2.7px 7px 1px rgb(221, 221, 221); /* Red shadow with slight transparency */
+  }  
+  .custom-btn {
+    background-color: #128af9; /* Custom blue color */
+    transition: background-color 0.3s;
+  }
+  
+  .custom-btn:hover {
+    background-color: #006eff; /* Darker blue on hover */
+  }
+  

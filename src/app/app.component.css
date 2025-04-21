@@ -1,0 +1,52 @@
+/* Logo CSS */
+.logo {
+    font-family: 'Arial', sans-serif; /* Use any font you like */
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .snap {
+    color: #007bff; /* Blue color for "SNAP" */
+    margin-right: 0.1rem; /* Space between "SNAP" and "BNB" */
+  }
+  
+  .bnb {
+    color: #343a40; /* Dark color for "BNB" */
+  }
+  .translate-link {
+    font-size: 1.3rem;             /* Slightly bigger overall link */
+    color: gray !important;        /* Gray color */
+    margin-left: -10px;    
+    padding-left: 20px;        /* Shift slightly to the left */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    padding: 0.25rem;
+  }
+  
+  .translate-link i {
+    font-size: 1.5rem;             /* Larger icon size */
+  }
+  
+  .translate-link:hover {
+    color: #2a2a2a !important;     /* Darker on hover */
+  }
+  @media (min-width: 1024px) {
+    .lg\:justify-end {
+        margin-right: 20px;
+    }
+}
+
+/* Add this to your global styles for a fade/slide effect */
+.slide-menu {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+  }
+  .slide-menu.open {
+    transform: translateX(0);
+  }
+  
