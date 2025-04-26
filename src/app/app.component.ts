@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, Input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, HostListener, inject, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SearchBarComponent } from "../search-bar/search-bar.component";
 import { CarouselComponent } from "../carousel/carousel.component";
@@ -11,13 +11,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SearchBarComponent, CarouselComponent, TranslateModule, FiltersBarComponent, NgIf, ModalLanguagesComponent],
+  imports: [SearchBarComponent, CarouselComponent, TranslateModule, FiltersBarComponent, ModalLanguagesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-
-
+  isScrolled = false;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.pageYOffset > 30; // adjust scroll threshold
+  }
   
 
 

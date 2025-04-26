@@ -1,40 +1,39 @@
 <div class="relative isolate px-6 pt-24 lg:px-8 z-30">
   <div class="w-full max-w-5xl mx-auto">
-    <!-- Shadow wrapper -->
-    <div class="shadow-wrapper shadow-xl rounded-[70px] overflow-visible">
-      <form class="grid grid-cols-1 gap-4 md:grid-cols-5 bg-white rounded-[70px] px-4 py-2 items-center border border-gray-300">
-        <!-- Dove -->
-        <div class="relative flex flex-col border-r px-4">
-          <label class="text-base font-medium text-gray-600 mb-0.5">Where</label>
-          <input
-            type="text"
-            [(ngModel)]="searchText"
-            name="searchText"
-            (input)="onCityInput($event)"
-            (blur)="hideSuggestions()"
-            (focus)="showSuggestions = true"
-            placeholder="Choose area"
-            autocomplete="off" 
-            autocorrect="off"
-            class="bg-transparent focus:outline-none placeholder-gray-400 text-base py-1"
-          />
-        
-          <!-- Dropdown -->
-<ul
-  *ngIf="showSuggestions && citySuggestions.length > 0" style="width: 400px;"
-  class="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-xl z-[99999] max-h-72 overflow-y-auto transition-all duration-200"
->
-  <li
-    *ngFor="let suggestion of citySuggestions"
-    (mousedown)="selectCity(suggestion)"
-    class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer text-base text-gray-700 transition-all duration-150 ease-in-out"
-  >
-    <i class="bi bi-geo-alt text-gray-400 text-lg"></i>
-    <span class="truncate">{{ suggestion }}</span>
-  </li>
-</ul>
-
-        </div>
+        <!-- Shadow wrapper -->
+        <div class="shadow-wrapper shadow-xl rounded-[70px] overflow-visible">
+          <form class="grid grid-cols-1 gap-4 md:grid-cols-5 bg-white rounded-[70px] px-4 py-2 items-center border border-gray-300 search-bar">
+            <!-- Dove -->
+            <div class="relative flex flex-col border-r px-4">
+              <label class="text-base font-medium text-gray-600 mb-0.5">Where are you</label>
+              <input
+                type="text"
+                [(ngModel)]="searchText"
+                name="searchText"
+                (input)="onCityInput($event)"
+                (blur)="hideSuggestions()"
+                (focus)="showSuggestions = true"
+                placeholder="Choose area"
+                autocomplete="off" 
+                autocorrect="off"
+                class="bg-transparent focus:outline-none placeholder-gray-400 text-base py-1"
+              />
+            
+              <!-- Dropdown -->
+              <ul
+                *ngIf="showSuggestions && citySuggestions.length > 0" style="width: 400px;"
+                class="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-xl z-[99999] max-h-72 overflow-y-auto transition-all duration-200"
+              >
+                <li
+                  *ngFor="let suggestion of citySuggestions"
+                  (mousedown)="selectCity(suggestion)"
+                  class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer text-base text-gray-700 transition-all duration-150 ease-in-out"
+                >
+                  <i class="bi bi-geo-alt text-gray-400 text-lg"></i>
+                  <span class="truncate">{{ suggestion }}</span>
+                </li>
+              </ul>
+            </div>
         
 
         <!-- Check-in -->
@@ -50,14 +49,43 @@
         </div>
 
         <!-- Chi -->
-        <div class="flex flex-col px-4">
-          <label class="text-base font-medium text-gray-600 mb-0.5">Your service</label>
-          <input
-            type="text"
-            placeholder="help in .."
-            class="bg-transparent focus:outline-none placeholder-gray-400 text-base py-1"
-          />
-        </div>        
+        <!-- Service Selector -->
+         <!-- Service Selector -->
+<div class="flex flex-col px-4 relative w-full">
+  <label class="text-base font-medium text-gray-600 mb-0.5">Your Service</label>
+
+  <!-- Trigger -->
+  <div
+    class="flex items-center justify-between bg-transparent border-b border-gray-300 py-2 px-3 cursor-pointer transition-all duration-150"
+    (click)="showServiceDropdown = !showServiceDropdown"
+    style="border-style: none !important;"
+  >
+    <span *ngIf="selectedService; else placeholder" class="flex items-center gap-2">
+      <i class="bi" [ngClass]="selectedServiceIcon"></i>
+      {{ selectedService }}
+    </span>
+    <ng-template #placeholder>
+      <span class="text-gray-400">Select a service</span>
+    </ng-template>
+  </div>
+
+  <!-- Styled Dropdown List (copied from Where dropdown) -->
+  <ul
+    *ngIf="showServiceDropdown"
+    class="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-xl z-[99999] max-h-72 overflow-y-auto transition-all duration-200"
+  >
+    <li
+      *ngFor="let service of services"
+      (mousedown)="selectService(service.name); showServiceDropdown = false"
+      class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer text-base text-gray-700 transition-all duration-150 ease-in-out"
+    >
+      <i class="bi" [ngClass]="service.icon + ' text-gray-400 text-lg'"></i>
+      <span class="truncate">{{ service.name }}</span>
+    </li>
+  </ul>
+</div>
+
+    
         <!-- Cerca Button -->
         <div class="flex justify-end items-end px-4">
           <button

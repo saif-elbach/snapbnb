@@ -60,5 +60,32 @@ export class SearchBarComponent implements AfterViewInit {
       this.showSuggestions = false;
     }, 200);
   }
+
+  // in your component.ts
+services = [
+  { name: 'Cleaning', icon: 'bi-bucket' },
+  { name: 'Tutoring', icon: 'bi-book' },
+  { name: 'Cooking', icon: 'bi-egg-fried' },
+  { name: 'Tech Help', icon: 'bi-laptop' },
+  { name: 'Online', icon: 'bi-globe' },
+  { name: 'In-Person', icon: 'bi-house-door' },
+  { name: 'Repair', icon: 'bi-ev-front' },
+  { name: 'Music', icon: 'bi-file-music' },
+  { name: 'Photography', icon: 'bi-camera' },
+];
+
+selectedService = '';
+showServiceDropdown = false;
+
+selectService(service: string) {
+  this.selectedService = service;
+  this.showServiceDropdown = false;
+}
+
+get selectedServiceIcon(): string {
+  const service = this.services.find(s => s.name === this.selectedService);
+  return service ? service.icon : '';
+}
+
 }
 

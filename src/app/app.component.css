@@ -49,4 +49,33 @@
   .slide-menu.open {
     transform: translateX(0);
   }
+  .scrolled {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .sticky {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .shrink {
+    height: 50px; /* Reduced height for the navbar content */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .shrink app-modal-languages,
+  .shrink app-search-bar,
+  .shrink app-filters-bar {
+    font-size: 0.85rem; /* Smaller font size */
+  }
+  
+  .shrink app-modal-languages i,
+  .shrink app-search-bar i,
+  .shrink app-filters-bar i {
+    font-size: 1.25rem; /* Smaller icons */
+  }
+  
   
